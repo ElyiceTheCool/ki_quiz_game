@@ -8,77 +8,75 @@ if playing.lower() != "yes":
 print("Okay! Let's play!")
 score = 0
 
-answer_1 = input("What year did Kings Island open? ")
-if answer_1.lower() == "1972":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+class Question:
+    score = 0
 
-answer_2 = input("What is the name of the spinning barrel ride? ")
-if answer_2.lower() == "cargo loco":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+        
+    def ask(self, question, answer):
+        user_answer = input(question)
+        if user_answer.lower() == answer:
+            print("Correct")
+            Question.score += 1
+        else:
+            print("Incorrect")
+        return Question.score
 
-answer_3 = input("Which coaster holds a World Record? ")
-if answer_3.lower() == "the beast":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_1 = "What year did Kings Island open? "
+answer_1 = "1972"
 
-answer_4 = input("Is Adventure Express a Steel or Wood coaster? ")
-if answer_4.lower() == "steel":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_2 = "What is the name of the spinning barrel ride? "
+answer_2 = "cargo loco"
 
-answer_5 = input("Who owns Kings Island? ")
-if answer_5.lower() == "cedar fair":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_3 = "Which coaster holds a World Record? "
+answer_3 = "the beast"
 
-answer_6 = input("True or False? The Beast is manufactured by Great Coasters International ")
-if answer_6.lower() == "false":
-    print("Correct! It was made in-house!")
-    score += 1
-else:
-    print("Incorrect.")
+question_4 = "Is Adventure Express a Steel or Wood coaster? "
+answer_4 = "steel"
 
-answer_7 = input("As of 2023, how many coasters does the park have? ")
-if answer_7.lower() == "14":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_5 = "Who currently owns Kings Island? "
+answer_5 = "cedar fair"
 
-answer_8 = input("Which movie company owned Kings Island previously? ")
-if answer_8.lower() == "paramount":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_6 = "True or False? The Beast is manufactured by Great Coasters International "
+answer_6 = "false"
 
-answer_9 = input("What TV show filmed an episode in the park in 1973? ")
-if answer_9.lower() == "the brady bunch":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")
+question_7 = "As of 2023, how many coasters does the park have? "
+answer_7 = "14"
 
-answer_10 = input("How many buses did Evel Knievel jump over at Kings Island? ")
-if answer_10.lower() == "14":
-    print("Correct!")
-    score += 1
-else:
-    print("Incorrect.")    
+question_8 = "Which movie company owned Kings Island previously? "
+answer_8 = "paramount"
 
-print("You got " + str(score) + " questions correct!")
-print("You got " + str(score/10 * 100) + "%.")
+question_9 = "What TV show filmed an episode in the park in 1973? "
+answer_9 = "the brady bunch"
 
-# TODO: Change questions to class
+question_10 = "How many buses did Evel Knievel jump over at Kings Island? "
+answer_10 = "14"
+
+complete1 = Question(question_1, answer_1)
+complete2 = Question(question_2, answer_2)
+complete3 = Question(question_3, answer_3)
+complete4 = Question(question_4, answer_4)
+complete5 = Question(question_5, answer_5)
+complete6 = Question(question_6, answer_6)
+complete7 = Question(question_7, answer_7)
+complete8 = Question(question_8, answer_8)
+complete9 = Question(question_9, answer_9)
+complete10 = Question(question_10, answer_10)
+
+complete1.ask(question_1, answer_1)
+complete2.ask(question_2, answer_2)
+complete3.ask(question_3, answer_3)
+complete4.ask(question_4, answer_4)
+complete5.ask(question_5, answer_5)
+complete6.ask(question_6, answer_6)
+complete7.ask(question_7, answer_7)
+complete8.ask(question_8, answer_8)
+complete9.ask(question_9, answer_9)
+complete10.ask(question_10, answer_10)
+
+print("You got " + str(Question.score) + " questions correct!")
+print("You got " + str(Question.score/10 * 100) + "%.")
+
+# TODO: Iterate through questions to avoid copying code
